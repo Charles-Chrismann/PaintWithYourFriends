@@ -1,13 +1,8 @@
+const express = require('express');
+const http = require('http');
+const { Server } = require("socket.io");
 
-import express from 'express'
-import cors from 'cors';
-import http from 'http'
-import { Server } from 'socket.io';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const PORT = process.env.PORT || 3000
 
 const app = express()
 app.use('/static', express.static(__dirname + '/static'))
@@ -30,6 +25,6 @@ io.on('connection', (socket) => {
     });
   });
 
-server.listen(3000, () => {
-  console.log('listening on *:3000');
+server.listen(PORT, () => {
+  console.log('listening on *:', PORT);
 });
