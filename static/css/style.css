@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+#brush {
+    position: fixed;
+    aspect-ratio: 1/1;
+    background: black;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+}
