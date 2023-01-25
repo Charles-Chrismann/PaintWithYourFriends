@@ -63,6 +63,7 @@ if (canvas.getContext) {
 }
 
 socket.on('draw', (msg) => {
+    console.log('drw')
     ctx.fillStyle = msg.clr
     // ctx.fillRect(msg.x - msg.radius/2, msg.y - msg.radius/2, msg.radius, msg.radius);
     ctx.beginPath();
