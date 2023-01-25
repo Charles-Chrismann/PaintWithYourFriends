@@ -35,7 +35,8 @@ if (canvas.getContext) {
             x: x,
             y: y,
             clr: document.querySelector('input[type="color"]').value,
-            radius: radius
+            radius: radius,
+            roomId: location.pathname.split('/')[location.pathname.split('/').length - 1]
         })
     })
     canvas.addEventListener('mousemove', (e) => {
@@ -47,7 +48,8 @@ if (canvas.getContext) {
             x: x,
             y: y,
             clr: document.querySelector('input[type="color"]').value,
-            radius: radius
+            radius: radius,
+            roomId: location.pathname.split('/')[location.pathname.split('/').length - 1]
         })
     })
     canvas.addEventListener('mouseup', (e) => {
@@ -61,6 +63,14 @@ if (canvas.getContext) {
   } else {
     // code pour le cas où canvas ne serait pas supporté
 }
+
+socket.on('connect', (msg) => {
+    console.log('connect')
+    socket.emit('join', {
+        userId: localStorage.getItem('userId'),
+        roomId: location.pathname.split('/')[location.pathname.split('/').length - 1]
+    })
+})
 
 socket.on('draw', (msg) => {
     console.log('drw')

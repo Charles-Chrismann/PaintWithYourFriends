@@ -7,12 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Create Game</h1>
+    <h1>user</h1>
 
     <form action="">
         <div>
-            <label for="">Room name</label>
-            <input type="text" name="name" id="">
+            <label for="">username</label>
+            <input type="text" name="username" id="">
         </div>
         <input type="submit" value="create">
     </form>
@@ -28,7 +28,7 @@
                 object[key] = value;
             });
             let json = JSON.stringify(object);
-            fetch('http://localhost:3000/create', {
+            fetch('http://localhost:3000/user', {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -37,8 +37,8 @@
             })
             .then(resp => resp.json())
             .then(resp => {
-                localStorage.setItem('roomId', resp.roomId)
-                location.href = location.origin + '/rooms/' + resp.roomId
+                localStorage.setItem('userId', resp.uuid)
+                location.href = location.origin
             })
 
         })
